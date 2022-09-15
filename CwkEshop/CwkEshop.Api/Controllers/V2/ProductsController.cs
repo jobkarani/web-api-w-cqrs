@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CwkEshop.Api.Controllers.V2
 {
     [ApiVersion("2.0")]
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
