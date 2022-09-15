@@ -4,20 +4,16 @@ using Microsoft.AspNetCore.Mvc;
 namespace CwkEshop.Api.Controllers.V2
 {
     [ApiVersion("2.0")]
-    [Route("/api/v{version:apiVersion}/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
-
         [HttpGet]
-        public IActionResult GetProducts()
-        {
-            var products = new List<Product>
-            {
-                new Product { Id = 1, Name = "Rider", Price = 48, AvailableQuantity = 99}
-            };
+        [Route ([{id}])]
 
-            return Ok(products);
+        public IActionResult GetById(int id){
+            var product = new Product(Id = id, Name = "Rider");
+            return Ok(product);
         }
     }
 }
